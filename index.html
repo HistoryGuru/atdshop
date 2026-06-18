@@ -4,13 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GRIPLOCK — Soccer Grip Socks</title>
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
   <link rel="stylesheet" href="css/style.css" />
 </head>
-
 <body>
 
   <!-- NAV -->
@@ -21,9 +18,9 @@
       <a href="sizeguide.html">Size Guide</a>
       <a href="faq.html">FAQ</a>
     </div>
-
     <button class="cart-btn" id="cartBtn" aria-label="Open cart">
-      🛒 <span class="cart-count" id="cartCount">0</span>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      <span class="cart-count" id="cartCount">0</span>
     </button>
   </nav>
 
@@ -36,35 +33,17 @@
       <p class="hero-sub">Anti-slip grip socks built for footballers who play to win. Zero slip. Total control.</p>
       <a href="#product" class="btn-primary">SHOP NOW</a>
     </div>
-
     <div class="hero-visual">
       <div class="sock-graphic">
-
-        <!-- REPLACED SVG WITH CAROUSEL (ONLY CHANGE) -->
-        <div class="sock-preview-carousel" id="sockPreviewCarousel">
-
-          <div class="carousel-slide active">
-            <img src="https://i.imgur.com/v76KsnC.png" alt="Grip Socks 1">
-          </div>
-
-          <div class="carousel-slide">
-            <img src="https://i.imgur.com/c6nucJv.png" alt="Grip Socks 2">
-          </div>
-
-          <div class="carousel-slide">
-            <img src="https://i.imgur.com/6OFv0OB.png" alt="Grip Socks 3">
-          </div>
-
-          <button class="carousel-btn prev" id="prevSlide">‹</button>
-          <button class="carousel-btn next" id="nextSlide">›</button>
-
+        <div class="sock-shape">
+          <div class="grip-dots"></div>
+          <span class="sock-label">GRIPLOCK PRO</span>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- STATS BAR (UNCHANGED) -->
+  <!-- STATS BAR -->
   <div class="stats-bar">
     <div class="stat"><span class="stat-num">200+</span><span class="stat-label">Grip Nodes</span></div>
     <div class="stat-divider"></div>
@@ -75,69 +54,82 @@
     <div class="stat"><span class="stat-num">All</span><span class="stat-label">Boot Types</span></div>
   </div>
 
-  <!-- PRODUCT SECTION (UNCHANGED STRUCTURE) -->
+  <!-- PRODUCT SECTION -->
   <section class="product-section" id="product">
     <div class="product-container">
 
-      <!-- PRODUCT VISUAL -->
+      <!-- Product Visual -->
       <div class="product-visual">
 
-        <!-- ONLY REPLACED SOCK SVG AREA -->
-        <div class="product-color-display" id="productDisplay">
-
-          <div class="sock-preview-carousel" id="sockPreviewCarousel">
-
-            <div class="carousel-slide active">
-              <img src="https://i.imgur.com/v76KsnC.png" alt="Grip Socks 1">
-            </div>
-
+        <!-- ── Image Carousel ── -->
+        <div class="carousel" id="carousel" role="region" aria-label="Product images">
+          <div class="carousel-track" id="carouselTrack">
             <div class="carousel-slide">
-              <img src="https://i.imgur.com/c6nucJv.png" alt="Grip Socks 2">
+              <img src="https://i.imgur.com/UcmmHw7.jpg" alt="GRIPLOCK Pro grip socks — view 1" loading="eager" />
             </div>
-
             <div class="carousel-slide">
-              <img src="https://i.imgur.com/6OFv0OB.png" alt="Grip Socks 3">
+              <img src="https://i.imgur.com/WlKmR9L.jpg" alt="GRIPLOCK Pro grip socks — view 2" loading="lazy" />
             </div>
-
-            <button class="carousel-btn prev" id="prevSlide">‹</button>
-            <button class="carousel-btn next" id="nextSlide">›</button>
-
+            <div class="carousel-slide">
+              <img src="https://i.imgur.com/CwZTIbw.jpg" alt="GRIPLOCK Pro grip socks — view 3" loading="lazy" />
+            </div>
           </div>
 
-          <div class="product-badge">GRIPLOCK PRO</div>
+          <!-- Prev / Next arrows -->
+          <button class="carousel-arrow carousel-prev" id="carouselPrev" aria-label="Previous image">&#8249;</button>
+          <button class="carousel-arrow carousel-next" id="carouselNext" aria-label="Next image">&#8250;</button>
+
+          <!-- Zoom button -->
+          <button class="carousel-zoom-btn" id="carouselZoomBtn" aria-label="Zoom image">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </button>
+
+          <!-- Dot indicators -->
+          <div class="carousel-dots" id="carouselDots">
+            <button class="carousel-dot active" data-index="0" aria-label="Image 1"></button>
+            <button class="carousel-dot" data-index="1" aria-label="Image 2"></button>
+            <button class="carousel-dot" data-index="2" aria-label="Image 3"></button>
+          </div>
         </div>
 
-        <!-- COLOR SWATCHES (UNCHANGED) -->
-        <div class="color-swatches">
-          <button class="swatch active" data-color="black"></button>
-          <button class="swatch" data-color="white"></button>
-          <button class="swatch" data-color="red"></button>
-          <button class="swatch" data-color="navy"></button>
-          <button class="swatch" data-color="green"></button>
+        <!-- Thumbnail strip -->
+        <div class="carousel-thumbs" id="carouselThumbs">
+          <button class="carousel-thumb active" data-index="0" aria-label="View image 1">
+            <img src="https://i.imgur.com/UcmmHw7.jpg" alt="Thumbnail 1" />
+          </button>
+          <button class="carousel-thumb" data-index="1" aria-label="View image 2">
+            <img src="https://i.imgur.com/WlKmR9L.jpg" alt="Thumbnail 2" />
+          </button>
+          <button class="carousel-thumb" data-index="2" aria-label="View image 3">
+            <img src="https://i.imgur.com/CwZTIbw.jpg" alt="Thumbnail 3" />
+          </button>
         </div>
-
-        <p class="selected-color-label">
-          Color: <span id="selectedColorLabel">Black</span>
-        </p>
-
       </div>
 
-      <!-- PRODUCT INFO (UNCHANGED) -->
-      <div class="product-info">
+      <!-- ── Zoom / Lightbox overlay ── -->
+      <div class="zoom-overlay" id="zoomOverlay" role="dialog" aria-modal="true" aria-label="Zoomed product image" hidden>
+        <button class="zoom-close" id="zoomClose" aria-label="Close zoom">&#x2715;</button>
+        <button class="zoom-arrow zoom-prev" id="zoomPrev" aria-label="Previous">&#8249;</button>
+        <div class="zoom-img-wrap">
+          <img class="zoom-img" id="zoomImg" src="" alt="Zoomed product image" draggable="false" />
+        </div>
+        <button class="zoom-arrow zoom-next" id="zoomNext" aria-label="Next">&#8250;</button>
+        <p class="zoom-hint">Scroll or pinch to zoom &nbsp;·&nbsp; Drag to pan</p>
+      </div>
 
+      <!-- Product Info -->
+      <div class="product-info">
         <p class="product-eyebrow">GRIPLOCK PRO SERIES</p>
         <h2 class="product-name">Grip Socks</h2>
-
         <div class="product-rating">
           <span class="stars">★★★★★</span>
           <span class="review-count">142 reviews</span>
         </div>
-
         <div class="product-price" id="productPrice">£18.99</div>
 
-        <!-- SIZE -->
+        <!-- Size selector -->
         <div class="selector-group">
-          <label class="selector-label">SIZE</label>
+          <label class="selector-label">SIZE <a href="sizeguide.html" class="size-link">Size Guide →</a></label>
           <div class="size-options" id="sizeOptions">
             <button class="size-btn" data-size="S">S</button>
             <button class="size-btn" data-size="M">M</button>
@@ -146,61 +138,57 @@
           </div>
         </div>
 
-        <!-- COLOR -->
+        <!-- Color selector label -->
         <div class="selector-group">
           <label class="selector-label">COLOR</label>
           <div class="color-swatches-inline">
-            <button class="swatch-sm active" data-color="black"></button>
-            <button class="swatch-sm" data-color="white"></button>
-            <button class="swatch-sm" data-color="red"></button>
-            <button class="swatch-sm" data-color="navy"></button>
-            <button class="swatch-sm" data-color="green"></button>
+            <button class="swatch-sm active" data-color="black" style="background:#0a0a0a" aria-label="Black"></button>
+            <button class="swatch-sm" data-color="white" style="background:#f0f0f0; border:2px solid #999" aria-label="White"></button>
+            <button class="swatch-sm" data-color="red" style="background:#d32f2f" aria-label="Red"></button>
+            <button class="swatch-sm" data-color="navy" style="background:#1a237e" aria-label="Navy"></button>
+            <button class="swatch-sm" data-color="green" style="background:#1b5e20" aria-label="Green"></button>
           </div>
         </div>
 
-        <!-- QTY -->
+        <!-- Quantity -->
         <div class="selector-group">
           <label class="selector-label">QUANTITY</label>
           <div class="qty-control">
-            <button id="qtyMinus">−</button>
-            <span id="qtyValue">1</span>
-            <button id="qtyPlus">+</button>
+            <button class="qty-btn" id="qtyMinus">−</button>
+            <span class="qty-value" id="qtyValue">1</span>
+            <button class="qty-btn" id="qtyPlus">+</button>
           </div>
         </div>
 
         <button class="btn-add-cart" id="addToCartBtn">ADD TO CART</button>
         <button class="btn-buy-now" id="buyNowBtn">BUY NOW</button>
 
-        <!-- FEATURES (UNCHANGED) -->
+        <!-- Features -->
         <ul class="feature-list">
-          <li>⚡ 200+ silicone grip nodes for zero slippage</li>
-          <li>🧵 Compression fit — stays in place all 90 mins</li>
-          <li>💧 Moisture-wicking pro-grade fabric</li>
-          <li>🥅 Compatible with all boot types</li>
+          <li><span class="feature-icon">⚡</span> 200+ silicone grip nodes for zero slippage</li>
+          <li><span class="feature-icon">🧵</span> Compression fit — stays in place all 90 mins</li>
+          <li><span class="feature-icon">💧</span> Moisture-wicking pro-grade fabric</li>
+          <li><span class="feature-icon">🥅</span> Compatible with all boot types</li>
         </ul>
-
       </div>
     </div>
   </section>
 
-  <!-- EMAIL SECTION (UNCHANGED) -->
+  <!-- EMAIL SIGNUP -->
   <section class="email-section" id="newsletter">
     <div class="email-inner">
       <p class="email-eyebrow">JOIN THE SQUAD</p>
       <h2 class="email-headline">Get 10% off your first order</h2>
-
+      <p class="email-sub">Early access to new colourways, exclusive drops, and pitch-side tips.</p>
       <form class="email-form" id="emailForm">
-        <input type="email" required placeholder="your@email.com" />
+        <input type="email" class="email-input" placeholder="your@email.com" required />
         <button type="submit" class="btn-primary">CLAIM 10%</button>
       </form>
-
-      <p class="email-confirm" id="emailConfirm" style="display:none">
-        ✓ You're in! Check your inbox.
-      </p>
+      <p class="email-confirm" id="emailConfirm" style="display:none">✓ You're in! Check your inbox for your discount code.</p>
     </div>
   </section>
 
-  <!-- FOOTER (UNCHANGED) -->
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-inner">
       <span class="footer-logo">GRIPLOCK</span>
@@ -213,30 +201,27 @@
     </div>
   </footer>
 
-  <!-- CART (UNCHANGED) -->
+  <!-- CART DRAWER -->
   <div class="cart-overlay" id="cartOverlay"></div>
-
   <aside class="cart-drawer" id="cartDrawer">
     <div class="cart-header">
       <h3>YOUR BAG</h3>
-      <button id="cartClose">✕</button>
+      <button class="cart-close" id="cartClose">✕</button>
     </div>
-
     <div class="cart-items" id="cartItems">
       <p class="cart-empty">Your bag is empty.</p>
     </div>
-
     <div class="cart-footer" id="cartFooter" style="display:none">
       <div class="cart-total">
         <span>Total</span>
         <span id="cartTotal">£0.00</span>
       </div>
-      <button id="checkoutBtn" class="btn-primary full-width">CHECKOUT</button>
+      <button class="btn-primary full-width" id="checkoutBtn">CHECKOUT</button>
     </div>
   </aside>
 
   <script src="js/cart.js"></script>
   <script src="js/product.js"></script>
-
+  <script src="js/carousel.js"></script>
 </body>
 </html>
