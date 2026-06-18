@@ -73,4 +73,21 @@ document.addEventListener('DOMContentLoaded', function() {
     var confirm = document.getElementById('emailConfirm');
     if (confirm) confirm.style.display = 'block';
   });
+  const slides = document.querySelectorAll(".carousel-slide");
+let index = 0;
+
+function showSlide(i) {
+  slides.forEach(slide => slide.classList.remove("active"));
+  slides[i].classList.add("active");
+}
+
+document.getElementById("nextSlide").addEventListener("click", () => {
+  index = (index + 1) % slides.length;
+  showSlide(index);
+});
+
+document.getElementById("prevSlide").addEventListener("click", () => {
+  index = (index - 1 + slides.length) % slides.length;
+  showSlide(index);
+});
 });
