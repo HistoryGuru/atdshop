@@ -28,10 +28,10 @@
   <section class="hero">
     <div class="hero-bg-text">GRIP</div>
     <div class="hero-content">
-      <p class="hero-eyebrow">ENGINEERED FOR THE PITCH</p>
-      <h1 class="hero-headline">DON'T<br/>SLIP.<br/>DOMINATE.</h1>
-      <p class="hero-sub">Anti-slip grip socks built for footballers who play to win. Zero slip. Total control.</p>
-      <a href="#product" class="btn-primary">SHOP NOW</a>
+      <p class="hero-eyebrow fade-up">ENGINEERED FOR THE PITCH</p>
+      <h1 class="hero-headline fade-up">DON'T<br/>SLIP.<br/>DOMINATE.</h1>
+      <p class="hero-sub fade-up">Anti-slip grip socks built for footballers who play to win. Zero slip. Total control.</p>
+      <a href="#product" class="btn-primary fade-up">SHOP NOW</a>
     </div>
     <div class="hero-visual">
       <div class="sock-graphic">
@@ -44,14 +44,14 @@
   </section>
 
   <!-- STATS BAR -->
-  <div class="stats-bar">
-    <div class="stat"><span class="stat-num">200+</span><span class="stat-label">Grip Nodes</span></div>
+  <div class="stats-bar stagger-group">
+    <div class="stat fade-up"><span class="stat-num">200+</span><span class="stat-label">Grip Nodes</span></div>
     <div class="stat-divider"></div>
-    <div class="stat"><span class="stat-num">0%</span><span class="stat-label">Slip Rate</span></div>
+    <div class="stat fade-up"><span class="stat-num">0%</span><span class="stat-label">Slip Rate</span></div>
     <div class="stat-divider"></div>
-    <div class="stat"><span class="stat-num">Pro</span><span class="stat-label">Grade Fabric</span></div>
+    <div class="stat fade-up"><span class="stat-num">Pro</span><span class="stat-label">Grade Fabric</span></div>
     <div class="stat-divider"></div>
-    <div class="stat"><span class="stat-num">All</span><span class="stat-label">Boot Types</span></div>
+    <div class="stat fade-up"><span class="stat-num">All</span><span class="stat-label">Boot Types</span></div>
   </div>
 
   <!-- PRODUCT SECTION -->
@@ -119,9 +119,9 @@
 
       <!-- Product Info -->
       <div class="product-info">
-        <p class="product-eyebrow">GRIPLOCK PRO SERIES</p>
-        <h2 class="product-name">Grip Socks</h2>
-        <div class="product-rating">
+        <p class="product-eyebrow fade-up">GRIPLOCK PRO SERIES</p>
+        <h2 class="product-name fade-up">Grip Socks</h2>
+        <div class="product-rating fade-up">
           <span class="stars">★★★★★</span>
           <span class="review-count">142 reviews</span>
         </div>
@@ -177,10 +177,10 @@
   <!-- EMAIL SIGNUP -->
   <section class="email-section" id="newsletter">
     <div class="email-inner">
-      <p class="email-eyebrow">JOIN THE SQUAD</p>
-      <h2 class="email-headline">Get 10% off your first order</h2>
-      <p class="email-sub">Early access to new colourways, exclusive drops, and pitch-side tips.</p>
-      <form class="email-form" id="emailForm">
+      <p class="email-eyebrow fade-up">JOIN THE SQUAD</p>
+      <h2 class="email-headline fade-up">Get 10% off your first order</h2>
+      <p class="email-sub fade-up">Early access to new colourways, exclusive drops, and pitch-side tips.</p>
+      <form class="email-form fade-up" id="emailForm">
         <input type="email" class="email-input" placeholder="your@email.com" required />
         <button type="submit" class="btn-primary">CLAIM 10%</button>
       </form>
@@ -223,5 +223,21 @@
   <script src="js/cart.js"></script>
   <script src="js/product.js"></script>
   <script src="js/carousel.js"></script>
+  <script>
+    // Scroll fade-in — fires once per element when 15% of it enters the viewport
+    (function () {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      document.querySelectorAll('.fade-up').forEach(function (el) {
+        observer.observe(el);
+      });
+    })();
+  </script>
 </body>
 </html>
