@@ -1,4 +1,4 @@
-// CONFIG
+// CONFIG: update API_URL after deploying to Render
 var CONFIG = { API_URL: 'https://YOUR-BACKEND.onrender.com' };
 
 var state = { color: 'black', size: 'L', qty: 1, price: 18.99 };
@@ -9,9 +9,11 @@ document.addEventListener('DOMContentLoaded', function() {
   // =========================
   // SIZE
   // =========================
-  document.querySelectorAll('.size-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('selected'));
+  document.querySelectorAll('.size-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.size-btn').forEach(function(b) {
+        b.classList.remove('selected');
+      });
       btn.classList.add('selected');
       state.size = btn.dataset.size;
     });
@@ -23,146 +25,159 @@ document.addEventListener('DOMContentLoaded', function() {
   function setColor(color) {
     state.color = color;
 
-    document.getElementById('selectedColorLabel')
-      ?.textContent = colorNames[color] || color;
+    var lbl = document.getElementById('selectedColorLabel');
+    if (lbl) lbl.textContent = colorNames[color] || color;
 
-    document.querySelectorAll('.swatch, .swatch-sm')
-      .forEach(s => s.classList.toggle('active', s.dataset.color === color));
+    document.querySelectorAll('.swatch, .swatch-sm').forEach(function(s) {
+      s.classList.toggle('active', s.dataset.color === color);
+    });
   }
 
-  document.querySelectorAll('.swatch, .swatch-sm').forEach(btn => {
-    btn.addEventListener('click', () => setColor(btn.dataset.color));
+  document.querySelectorAll('.swatch, .swatch-sm').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      setColor(btn.dataset.color);
+    });
   });
 
   // =========================
-  // QTY
+  // QUANTITY
   // =========================
-  const qtyEl = document.getElementById('qtyValue');
-  document.getElementById('qtyPlus')?.addEventListener('click', () => {
+  var qtyEl = document.getElementById('qtyValue');
+  var plusBtn = document.getElementById('qtyPlus');
+  var minusBtn = document.getElementById('qtyMinus');
+
+  if (plusBtn) plusBtn.addEventListener('click', function() {
     state.qty = Math.min(state.qty + 1, 10);
     if (qtyEl) qtyEl.textContent = state.qty;
   });
 
-  document.getElementById('qtyMinus')?.addEventListener('click', () => {
+  if (minusBtn) minusBtn.addEventListener('click', function() {
     state.qty = Math.max(state.qty - 1, 1);
     if (qtyEl) qtyEl.textContent = state.qty;
   });
 
   // =========================
-  // CART
+  // ADD TO CART
   // =========================
-  document.getElementById('addToCartBtn')?.addEventListener('click', () => {
+  var addBtn = document.getElementById('addToCartBtn');
+
+  if (addBtn) addBtn.addEventListener('click', function() {
     Cart.add({
-      name:'GRIPLOCK PRO',
-      color:state.color,
-      size:state.size,
-      qty:state.qty,
-      price:state.price
+      name: 'GRIPLOCK PRO',
+      color: state.color,
+      size: state.size,
+      qty: state.qty,
+      price: state.price
     });
+
+    addBtn.textContent = 'ADDED TO BAG';
+    addBtn.style.background = '#22c55e';
+
+    setTimeout(function() {
+      addBtn.textContent = 'ADD TO CART';
+      addBtn.style.background = '';
+    }, 1400);
   });
 
-  document.getElementById('buyNowBtn')?.addEventListener('click', () => {
+  // =========================
+  // BUY NOW
+  // =========================
+  var buyBtn = document.getElementById('buyNowBtn');
+
+  if (buyBtn) buyBtn.addEventListener('click', function() {
     Cart.add({
-      name:'GRIPLOCK PRO',
-      color:state.color,
-      size:state.size,
-      qty:state.qty,
-      price:state.price
+      name: 'GRIPLOCK PRO',
+      color: state.color,
+      size: state.size,
+      qty: state.qty,
+      price: state.price
     });
-    document.getElementById('checkoutBtn')?.click();
+
+    var ckBtn = document.getElementById('checkoutBtn');
+    if (ckBtn) ckBtn.click();
   });
 
   // =========================
-  // EMAIL
+  // EMAIL SIGNUP
   // =========================
-  document.getElementById('emailForm')?.addEventListener('submit', e => {
+  var emailForm = document.getElementById('emailForm');
+
+  if (emailForm) emailForm.addEventListener('submit', function(e) {
     e.preventDefault();
 
-    const email = e.target.querySelector('input').value;
+    var email = emailForm.querySelector('input[type="email"]').value;
 
     fetch(CONFIG.API_URL + '/subscribe', {
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({ email })
-    }).catch(()=>{});
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email })
+    }).catch(function() {});
 
-    e.target.style.display='none';
-    document.getElementById('emailConfirm').style.display='block';
+    emailForm.style.display = 'none';
+
+    var confirm = document.getElementById('emailConfirm');
+    if (confirm) confirm.style.display = 'block';
   });
 
   // =========================
-  // GALLERY DATA
+  // CAROUSEL
   // =========================
-  const images = Array.from(document.querySelectorAll('.carousel-slide img'));
-  const track = document.querySelector('.carousel-track');
-  const thumbs = document.querySelectorAll('.thumb');
+  var slides = document.querySelectorAll('.carousel-slide');
+  var nextBtn = document.getElementById('nextSlide');
+  var prevBtn = document.getElementById('prevSlide');
 
-  let index = 0;
+  var index = 0;
 
-  function updateGallery(i){
-    index = i;
-
-    images.forEach((img, idx)=>{
-      img.style.display = idx === i ? 'block' : 'none';
+  function showSlide(i) {
+    slides.forEach(function(s) {
+      s.classList.remove('active');
     });
-
-    thumbs.forEach((t, idx)=>{
-      t.classList.toggle('active', idx === i);
-    });
+    if (slides[i]) slides[i].classList.add('active');
   }
 
-  // init
-  updateGallery(0);
+  if (slides.length && nextBtn && prevBtn) {
 
-  // =========================
-  // BUTTONS
-  // =========================
-  document.getElementById('nextSlide')?.addEventListener('click', () => {
-    updateGallery((index + 1) % images.length);
-  });
-
-  document.getElementById('prevSlide')?.addEventListener('click', () => {
-    updateGallery((index - 1 + images.length) % images.length);
-  });
-
-  // =========================
-  // THUMBNAILS
-  // =========================
-  thumbs.forEach((t, i)=>{
-    t.addEventListener('click', ()=> updateGallery(i));
-  });
-
-  // =========================
-  // SWIPE (mobile)
-  // =========================
-  let startX = 0;
-
-  track?.addEventListener('touchstart', e=>{
-    startX = e.touches[0].clientX;
-  });
-
-  track?.addEventListener('touchend', e=>{
-    let diff = e.changedTouches[0].clientX - startX;
-
-    if(diff > 50) updateGallery((index - 1 + images.length) % images.length);
-    if(diff < -50) updateGallery((index + 1) % images.length);
-  });
-
-  // =========================
-  // FULLSCREEN MODAL ZOOM
-  // =========================
-  const modal = document.getElementById('imgModal');
-  const modalImg = document.getElementById('modalImg');
-
-  images.forEach(img=>{
-    img.addEventListener('click', ()=>{
-      modalImg.src = img.src;
-      modal.style.display = 'flex';
+    nextBtn.addEventListener('click', function() {
+      index = (index + 1) % slides.length;
+      showSlide(index);
     });
-  });
 
-  modal?.addEventListener('click', ()=>{
-    modal.style.display = 'none';
+    prevBtn.addEventListener('click', function() {
+      index = (index - 1 + slides.length) % slides.length;
+      showSlide(index);
+    });
+
+  }
+
+  // =========================
+  // CURSOR ZOOM (CENTERED)
+  // =========================
+  var images = document.querySelectorAll('.carousel-slide img');
+
+  images.forEach(function(img) {
+    var zoomed = false;
+
+    img.addEventListener('mouseenter', function() {
+      zoomed = true;
+      img.classList.add('zoomed');
+    });
+
+    img.addEventListener('mouseleave', function() {
+      zoomed = false;
+      img.classList.remove('zoomed');
+      img.style.transformOrigin = 'center';
+    });
+
+    img.addEventListener('mousemove', function(e) {
+      if (!zoomed) return;
+
+      var rect = img.getBoundingClientRect();
+
+      var x = ((e.clientX - rect.left) / rect.width) * 100;
+      var y = ((e.clientY - rect.top) / rect.height) * 100;
+
+      img.style.transformOrigin = x + '% ' + y + '%';
+    });
   });
 
 });
