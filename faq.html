@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ — GRIPLOCK</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">GRIPLOCK</a>
+    <div class="nav-links">
+      <a href="index.html#product">Shop</a>
+      <a href="sizeguide.html">Size Guide</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+    <button class="cart-btn" id="cartBtn" aria-label="Open cart">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </nav>
+
+  <div class="inner-hero">
+    <h1>FAQ</h1>
+    <p>Everything you need to know about GRIPLOCK socks.</p>
+  </div>
+
+  <div class="inner-content">
+
+    <div class="faq-list" id="faqList">
+
+      <div class="faq-item">
+        <button class="faq-question">
+          What makes GRIPLOCK different from regular socks?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          GRIPLOCK PRO socks feature 200+ silicone grip nodes strategically placed on the sole and sides. Unlike regular socks, they create a friction layer between your foot and boot, eliminating internal slippage that costs you power and control on the ball.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          How do I wear grip socks with my team socks?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Simple: pull your team socks up to knee height, then cut the foot section off your team socks (below the ankle). Wear GRIPLOCK PRO underneath, fold your team sock top over the cut edge. No tape needed. The grip layer is fully inside your boot.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Are they compatible with all boot types?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Yes. GRIPLOCK PRO works with firm ground, soft ground, astro turf, and indoor boots. The silicone grip nodes are embedded into the fabric, so they adapt to any insole surface without causing discomfort.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          How long do they last?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          With proper care, GRIPLOCK PRO socks retain their grip for 40-60 washes. We recommend washing inside-out at 30 degrees and air drying to maximise the lifespan of the silicone nodes.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          What is your returns policy?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          We offer a 30-day hassle-free return on any unworn, unopened socks. If you received a faulty pair, contact us at hello@griplock.com and we will send a replacement at no cost, no questions asked.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          How long does shipping take?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          UK orders ship within 1-2 business days and arrive in 2-4 days. International shipping to Europe takes 5-7 days. All orders include a tracking number sent to your email at dispatch.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Can I get a discount on bulk orders?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Yes! For team orders of 10 pairs or more, email us at hello@griplock.com with your squad size and we will put together a custom quote. We supply semi-pro and amateur clubs across the UK.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Is payment secure?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          All payments are processed securely through Stripe, the same payment infrastructure used by Amazon and Google. We never store your card details. Your order is fully encrypted end-to-end.
+        </div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:48px; padding:24px; background:#1a1a1a; border:1px solid #2a2a2a; border-radius:4px; text-align:center;">
+      <p style="color:#888; margin-bottom:12px; font-size:14px;">Still got a question?</p>
+      <a href="mailto:hello@griplock.com" class="btn-primary">EMAIL US</a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-logo">GRIPLOCK</span>
+      <div class="footer-links">
+        <a href="sizeguide.html">Size Guide</a>
+        <a href="faq.html">FAQ</a>
+        <a href="mailto:hello@griplock.com">Contact</a>
+      </div>
+      <p class="footer-copy">2026 GRIPLOCK. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>YOUR BAG</h3>
+      <button class="cart-close" id="cartClose">X</button>
+    </div>
+    <div class="cart-items" id="cartItems"><p class="cart-empty">Your bag is empty.</p></div>
+    <div class="cart-footer" id="cartFooter" style="display:none">
+      <div class="cart-total"><span>Total</span><span id="cartTotal">0.00</span></div>
+      <button class="btn-primary full-width" id="checkoutBtn">CHECKOUT</button>
+    </div>
+  </aside>
+
+  <script src="js/cart.js"></script>
+  <script>
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const isOpen = btn.classList.contains('open');
+        document.querySelectorAll('.faq-question').forEach(b => {
+          b.classList.remove('open');
+          b.nextElementSibling.classList.remove('open');
+        });
+        if (!isOpen) {
+          btn.classList.add('open');
+          btn.nextElementSibling.classList.add('open');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

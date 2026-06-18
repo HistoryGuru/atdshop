@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GRIPLOCK — Soccer Grip Socks</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">GRIPLOCK</a>
+    <div class="nav-links">
+      <a href="#product">Shop</a>
+      <a href="sizeguide.html">Size Guide</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+    <button class="cart-btn" id="cartBtn" aria-label="Open cart">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-text">GRIP</div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">ENGINEERED FOR THE PITCH</p>
+      <h1 class="hero-headline">DON'T<br/>SLIP.<br/>DOMINATE.</h1>
+      <p class="hero-sub">Anti-slip grip socks built for footballers who play to win. Zero slip. Total control.</p>
+      <a href="#product" class="btn-primary">SHOP NOW</a>
+    </div>
+    <div class="hero-visual">
+      <div class="sock-graphic">
+        <div class="sock-shape">
+          <div class="grip-dots"></div>
+          <span class="sock-label">GRIPLOCK PRO</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stat"><span class="stat-num">200+</span><span class="stat-label">Grip Nodes</span></div>
+    <div class="stat-divider"></div>
+    <div class="stat"><span class="stat-num">0%</span><span class="stat-label">Slip Rate</span></div>
+    <div class="stat-divider"></div>
+    <div class="stat"><span class="stat-num">Pro</span><span class="stat-label">Grade Fabric</span></div>
+    <div class="stat-divider"></div>
+    <div class="stat"><span class="stat-num">All</span><span class="stat-label">Boot Types</span></div>
+  </div>
+
+  <!-- PRODUCT SECTION -->
+  <section class="product-section" id="product">
+    <div class="product-container">
+
+      <!-- Product Visual -->
+      <div class="product-visual">
+        <div class="product-color-display" id="productDisplay">
+          <div class="sock-preview" id="sockPreview" data-color="black">
+            <svg viewBox="0 0 220 320" xmlns="http://www.w3.org/2000/svg">
+              <path class="sock-body" d="M70,20 L150,20 L155,160 C155,160 180,175 185,210 C190,245 175,275 155,285 C135,295 85,295 65,285 C45,275 30,245 35,210 C40,175 65,160 65,160 Z" fill="currentColor"/>
+              <g class="grip-pattern" fill="var(--accent)" opacity="0.9">
+                <rect x="75" y="200" width="8" height="8" rx="2"/>
+                <rect x="93" y="200" width="8" height="8" rx="2"/>
+                <rect x="111" y="200" width="8" height="8" rx="2"/>
+                <rect x="129" y="200" width="8" height="8" rx="2"/>
+                <rect x="84" y="216" width="8" height="8" rx="2"/>
+                <rect x="102" y="216" width="8" height="8" rx="2"/>
+                <rect x="120" y="216" width="8" height="8" rx="2"/>
+                <rect x="75" y="232" width="8" height="8" rx="2"/>
+                <rect x="93" y="232" width="8" height="8" rx="2"/>
+                <rect x="111" y="232" width="8" height="8" rx="2"/>
+                <rect x="129" y="232" width="8" height="8" rx="2"/>
+                <rect x="84" y="248" width="8" height="8" rx="2"/>
+                <rect x="102" y="248" width="8" height="8" rx="2"/>
+                <rect x="120" y="248" width="8" height="8" rx="2"/>
+              </g>
+              <rect x="68" y="20" width="84" height="28" rx="0" fill="var(--accent)" opacity="0.15"/>
+              <text x="110" y="39" text-anchor="middle" fill="var(--accent)" font-family="Bebas Neue" font-size="13" letter-spacing="3">GRIPLOCK</text>
+            </svg>
+          </div>
+          <div class="product-badge">GRIPLOCK PRO</div>
+        </div>
+
+        <!-- Color swatches -->
+        <div class="color-swatches">
+          <button class="swatch active" data-color="black" style="background:#0a0a0a" aria-label="Black"></button>
+          <button class="swatch" data-color="white" style="background:#f0f0f0; border: 2px solid #ccc;" aria-label="White"></button>
+          <button class="swatch" data-color="red" style="background:#d32f2f" aria-label="Red"></button>
+          <button class="swatch" data-color="navy" style="background:#1a237e" aria-label="Navy"></button>
+          <button class="swatch" data-color="green" style="background:#1b5e20" aria-label="Green"></button>
+        </div>
+        <p class="selected-color-label">Color: <span id="selectedColorLabel">Black</span></p>
+      </div>
+
+      <!-- Product Info -->
+      <div class="product-info">
+        <p class="product-eyebrow">GRIPLOCK PRO SERIES</p>
+        <h2 class="product-name">Grip Socks</h2>
+        <div class="product-rating">
+          <span class="stars">★★★★★</span>
+          <span class="review-count">142 reviews</span>
+        </div>
+        <div class="product-price" id="productPrice">£18.99</div>
+
+        <!-- Size selector -->
+        <div class="selector-group">
+          <label class="selector-label">SIZE <a href="sizeguide.html" class="size-link">Size Guide →</a></label>
+          <div class="size-options" id="sizeOptions">
+            <button class="size-btn" data-size="S">S</button>
+            <button class="size-btn" data-size="M">M</button>
+            <button class="size-btn selected" data-size="L">L</button>
+            <button class="size-btn" data-size="XL">XL</button>
+          </div>
+        </div>
+
+        <!-- Color selector label -->
+        <div class="selector-group">
+          <label class="selector-label">COLOR</label>
+          <div class="color-swatches-inline">
+            <button class="swatch-sm active" data-color="black" style="background:#0a0a0a" aria-label="Black"></button>
+            <button class="swatch-sm" data-color="white" style="background:#f0f0f0; border:2px solid #999" aria-label="White"></button>
+            <button class="swatch-sm" data-color="red" style="background:#d32f2f" aria-label="Red"></button>
+            <button class="swatch-sm" data-color="navy" style="background:#1a237e" aria-label="Navy"></button>
+            <button class="swatch-sm" data-color="green" style="background:#1b5e20" aria-label="Green"></button>
+          </div>
+        </div>
+
+        <!-- Quantity -->
+        <div class="selector-group">
+          <label class="selector-label">QUANTITY</label>
+          <div class="qty-control">
+            <button class="qty-btn" id="qtyMinus">−</button>
+            <span class="qty-value" id="qtyValue">1</span>
+            <button class="qty-btn" id="qtyPlus">+</button>
+          </div>
+        </div>
+
+        <button class="btn-add-cart" id="addToCartBtn">ADD TO CART</button>
+        <button class="btn-buy-now" id="buyNowBtn">BUY NOW</button>
+
+        <!-- Features -->
+        <ul class="feature-list">
+          <li><span class="feature-icon">⚡</span> 200+ silicone grip nodes for zero slippage</li>
+          <li><span class="feature-icon">🧵</span> Compression fit — stays in place all 90 mins</li>
+          <li><span class="feature-icon">💧</span> Moisture-wicking pro-grade fabric</li>
+          <li><span class="feature-icon">🥅</span> Compatible with all boot types</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- EMAIL SIGNUP -->
+  <section class="email-section" id="newsletter">
+    <div class="email-inner">
+      <p class="email-eyebrow">JOIN THE SQUAD</p>
+      <h2 class="email-headline">Get 10% off your first order</h2>
+      <p class="email-sub">Early access to new colourways, exclusive drops, and pitch-side tips.</p>
+      <form class="email-form" id="emailForm">
+        <input type="email" class="email-input" placeholder="your@email.com" required />
+        <button type="submit" class="btn-primary">CLAIM 10%</button>
+      </form>
+      <p class="email-confirm" id="emailConfirm" style="display:none">✓ You're in! Check your inbox for your discount code.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-logo">GRIPLOCK</span>
+      <div class="footer-links">
+        <a href="sizeguide.html">Size Guide</a>
+        <a href="faq.html">FAQ</a>
+        <a href="mailto:hello@griplock.com">Contact</a>
+      </div>
+      <p class="footer-copy">© 2026 GRIPLOCK. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- CART DRAWER -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>YOUR BAG</h3>
+      <button class="cart-close" id="cartClose">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <p class="cart-empty">Your bag is empty.</p>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display:none">
+      <div class="cart-total">
+        <span>Total</span>
+        <span id="cartTotal">£0.00</span>
+      </div>
+      <button class="btn-primary full-width" id="checkoutBtn">CHECKOUT</button>
+    </div>
+  </aside>
+
+  <script src="js/cart.js"></script>
+  <script src="js/product.js"></script>
+</body>
+</html>
