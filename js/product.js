@@ -73,21 +73,28 @@ document.addEventListener('DOMContentLoaded', function() {
     var confirm = document.getElementById('emailConfirm');
     if (confirm) confirm.style.display = 'block';
   });
+  document.addEventListener("DOMContentLoaded", () => {
   const slides = document.querySelectorAll(".carousel-slide");
-let index = 0;
+  const nextBtn = document.getElementById("nextSlide");
+  const prevBtn = document.getElementById("prevSlide");
 
-function showSlide(i) {
-  slides.forEach(slide => slide.classList.remove("active"));
-  slides[i].classList.add("active");
-}
+  let index = 0;
 
-document.getElementById("nextSlide").addEventListener("click", () => {
-  index = (index + 1) % slides.length;
-  showSlide(index);
-});
+  function showSlide(i) {
+    slides.forEach(slide => slide.classList.remove("active"));
+    slides[i].classList.add("active");
+  }
 
-document.getElementById("prevSlide").addEventListener("click", () => {
-  index = (index - 1 + slides.length) % slides.length;
-  showSlide(index);
+  if (nextBtn && prevBtn && slides.length) {
+    nextBtn.addEventListener("click", () => {
+      index = (index + 1) % slides.length;
+      showSlide(index);
+    });
+
+    prevBtn.addEventListener("click", () => {
+      index = (index - 1 + slides.length) % slides.length;
+      showSlide(index);
+    });
+  }
 });
 });
