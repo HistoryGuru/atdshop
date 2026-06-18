@@ -14,9 +14,9 @@
 
   /* ── Config ── */
   var IMAGES = [
-    'https://i.imgur.com/UcmmHw7.jpg',
-    'https://i.imgur.com/WlKmR9L.jpg',
-    'https://i.imgur.com/CwZTIbw.jpg'
+    'https://i.imgur.com/1kccEbq.png',
+    'https://i.imgur.com/jIEQyFN.png',
+    'https://i.imgur.com/DITrKXv.png'
   ];
   var SLIDE_COUNT = IMAGES.length;
   var MIN_ZOOM = 1;
