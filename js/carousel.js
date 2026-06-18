@@ -186,15 +186,31 @@
     });
   }
 
-  /* Scroll wheel zoom */
+  /* Scroll wheel zoom — centered on cursor position */
   if (zoomWrap) {
     zoomWrap.addEventListener('wheel', function (e) {
       e.preventDefault();
+
+      var rect = zoomWrap.getBoundingClientRect();
+      // Mouse position relative to the wrap (0–1)
+      var mouseX = e.clientX - rect.left;
+      var mouseY = e.clientY - rect.top;
+
+      var prevScale = lbScale;
       var delta = e.deltaY < 0 ? ZOOM_STEP : -ZOOM_STEP;
       lbScale = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, lbScale + delta));
+
+      // Adjust offsets so the point under the cursor stays fixed.
+      // When scale changes, the pixel at (mouseX, mouseY) in wrap-space
+      // maps to a point in image-space. We want that image-space point
+      // to remain under the cursor after scaling.
+      var scaleRatio = lbScale / prevScale;
+      lbOffsetX = mouseX - scaleRatio * (mouseX - lbOffsetX);
+      lbOffsetY = mouseY - scaleRatio * (mouseY - lbOffsetY);
+
       if (lbScale === MIN_ZOOM) { lbOffsetX = 0; lbOffsetY = 0; }
       clampOffsets();
-      applyLbTransform(true);
+      applyLbTransform(false);
     }, { passive: false });
   }
 
@@ -247,13 +263,25 @@
     zoomWrap.addEventListener('touchmove', function (e) {
       if (e.touches.length === 2) {
         e.preventDefault();
+        var rect = zoomWrap.getBoundingClientRect();
         var dist = Math.hypot(
           e.touches[0].clientX - e.touches[1].clientX,
           e.touches[0].clientY - e.touches[1].clientY
         );
+        // Midpoint between fingers in wrap-space
+        var midX = ((e.touches[0].clientX + e.touches[1].clientX) / 2) - rect.left;
+        var midY = ((e.touches[0].clientY + e.touches[1].clientY) / 2) - rect.top;
+
+        var prevScale = lbScale;
         var ratio = dist / (lastPinchDist || dist);
         lbScale = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, lbScale * ratio));
         lastPinchDist = dist;
+
+        // Keep the midpoint fixed under the fingers
+        var scaleRatio = lbScale / prevScale;
+        lbOffsetX = midX - scaleRatio * (midX - lbOffsetX);
+        lbOffsetY = midY - scaleRatio * (midY - lbOffsetY);
+
         if (lbScale === MIN_ZOOM) { lbOffsetX = 0; lbOffsetY = 0; }
         clampOffsets();
         applyLbTransform(false);
