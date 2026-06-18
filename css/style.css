@@ -540,9 +540,25 @@ img, svg { display: block; }
   cursor: zoom-in;
 }
 
-/* ===== HOVER ZOOM (DESKTOP) ===== */
-.carousel-slide img:hover {
-  transform: scale(1.8);
+.carousel-slide {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+/* image base */
+.carousel-slide img {
+  width: 100%;
+  display: block;
+  transition: transform 0.15s ease;
+  transform-origin: center;
+  cursor: zoom-in;
+}
+
+/* zoom active state */
+.carousel-slide img.zoomed {
+  transform: scale(2);
+  cursor: zoom-out;
 }
 
 /* Optional: keep zoom centered nicely */
