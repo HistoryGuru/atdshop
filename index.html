@@ -4,10 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GRIPLOCK — Soccer Grip Socks</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
 
   <!-- NAV -->
@@ -18,97 +21,66 @@
       <a href="sizeguide.html">Size Guide</a>
       <a href="faq.html">FAQ</a>
     </div>
-    <button class="cart-btn" id="cartBtn" aria-label="Open cart">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-      <span class="cart-count" id="cartCount">0</span>
+
+    <button class="cart-btn" id="cartBtn">
+      🛒 <span id="cartCount">0</span>
     </button>
   </nav>
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-bg-text">GRIP</div>
     <div class="hero-content">
-      <p class="hero-eyebrow">ENGINEERED FOR THE PITCH</p>
-      <h1 class="hero-headline">DON'T<br/>SLIP.<br/>DOMINATE.</h1>
-      <p class="hero-sub">Anti-slip grip socks built for footballers who play to win. Zero slip. Total control.</p>
+      <p class="hero-eyebrow">ENGINEERED FOR PERFORMANCE</p>
+      <h1 class="hero-headline">DON’T SLIP.<br>DOMINATE.</h1>
+      <p class="hero-sub">
+        Pro-grade grip socks built for control, speed, and stability.
+      </p>
       <a href="#product" class="btn-primary">SHOP NOW</a>
-    </div>
-    <div class="hero-visual">
-      <div class="sock-graphic">
-        <div class="sock-shape">
-          <div class="grip-dots"></div>
-          <span class="sock-label">GRIPLOCK PRO</span>
-        </div>
-      </div>
     </div>
   </section>
 
-  <!-- STATS BAR -->
-  <div class="stats-bar">
-    <div class="stat"><span class="stat-num">200+</span><span class="stat-label">Grip Nodes</span></div>
-    <div class="stat-divider"></div>
-    <div class="stat"><span class="stat-num">0%</span><span class="stat-label">Slip Rate</span></div>
-    <div class="stat-divider"></div>
-    <div class="stat"><span class="stat-num">Pro</span><span class="stat-label">Grade Fabric</span></div>
-    <div class="stat-divider"></div>
-    <div class="stat"><span class="stat-num">All</span><span class="stat-label">Boot Types</span></div>
-  </div>
-
-  <!-- PRODUCT SECTION -->
+  <!-- PRODUCT -->
   <section class="product-section" id="product">
+
     <div class="product-container">
 
-      <!-- Product Visual -->
-      <div class="sock-preview-carousel" id="sockPreviewCarousel">
+      <!-- IMAGE CAROUSEL -->
+      <div class="product-visual">
 
-  <div class="carousel-track" id="carouselTrack">
+        <div class="sock-preview-carousel">
 
-    <div class="carousel-slide active">
-      <img src="https://i.imgur.com/v76KsnC.png" alt="Grip Socks 1" />
-    </div>
+          <div class="carousel-slide active">
+            <img src="https://i.imgur.com/v76KsnC.png" alt="Grip Socks 1">
+          </div>
 
-    <div class="carousel-slide">
-      <img src="https://i.imgur.com/c6nucJv.png" alt="Grip Socks 2" />
-    </div>
+          <div class="carousel-slide">
+            <img src="https://i.imgur.com/c6nucJv.png" alt="Grip Socks 2">
+          </div>
 
-    <div class="carousel-slide">
-      <img src="https://i.imgur.com/6OFv0OB.png" alt="Grip Socks 3" />
-    </div>
+          <div class="carousel-slide">
+            <img src="https://i.imgur.com/6OFv0OB.png" alt="Grip Socks 3">
+          </div>
 
-  </div>
+          <button class="carousel-btn prev" id="prevSlide">‹</button>
+          <button class="carousel-btn next" id="nextSlide">›</button>
 
-  <button class="carousel-btn prev" id="prevSlide">‹</button>
-  <button class="carousel-btn next" id="nextSlide">›</button>
-
-</div>
-
-<div class="product-badge">GRIPLOCK PRO</div>
-
-        <!-- Color swatches -->
-        <div class="color-swatches">
-          <button class="swatch active" data-color="black" style="background:#0a0a0a" aria-label="Black"></button>
-          <button class="swatch" data-color="white" style="background:#f0f0f0; border: 2px solid #ccc;" aria-label="White"></button>
-          <button class="swatch" data-color="red" style="background:#d32f2f" aria-label="Red"></button>
-          <button class="swatch" data-color="navy" style="background:#1a237e" aria-label="Navy"></button>
-          <button class="swatch" data-color="green" style="background:#1b5e20" aria-label="Green"></button>
         </div>
-        <p class="selected-color-label">Color: <span id="selectedColorLabel">Black</span></p>
+
+        <div class="product-badge">GRIPLOCK PRO</div>
+
       </div>
 
-      <!-- Product Info -->
+      <!-- PRODUCT INFO -->
       <div class="product-info">
-        <p class="product-eyebrow">GRIPLOCK PRO SERIES</p>
-        <h2 class="product-name">Grip Socks</h2>
-        <div class="product-rating">
-          <span class="stars">★★★★★</span>
-          <span class="review-count">142 reviews</span>
-        </div>
-        <div class="product-price" id="productPrice">£18.99</div>
 
-        <!-- Size selector -->
+        <h2>Grip Socks</h2>
+
+        <div class="product-price">£18.99</div>
+
+        <!-- SIZE -->
         <div class="selector-group">
-          <label class="selector-label">SIZE <a href="sizeguide.html" class="size-link">Size Guide →</a></label>
-          <div class="size-options" id="sizeOptions">
+          <label>Size</label>
+          <div class="size-options">
             <button class="size-btn" data-size="S">S</button>
             <button class="size-btn" data-size="M">M</button>
             <button class="size-btn selected" data-size="L">L</button>
@@ -116,89 +88,39 @@
           </div>
         </div>
 
-        <!-- Color selector label -->
+        <!-- COLOR -->
         <div class="selector-group">
-          <label class="selector-label">COLOR</label>
-          <div class="color-swatches-inline">
-            <button class="swatch-sm active" data-color="black" style="background:#0a0a0a" aria-label="Black"></button>
-            <button class="swatch-sm" data-color="white" style="background:#f0f0f0; border:2px solid #999" aria-label="White"></button>
-            <button class="swatch-sm" data-color="red" style="background:#d32f2f" aria-label="Red"></button>
-            <button class="swatch-sm" data-color="navy" style="background:#1a237e" aria-label="Navy"></button>
-            <button class="swatch-sm" data-color="green" style="background:#1b5e20" aria-label="Green"></button>
+          <label>Color</label>
+          <div class="color-swatches">
+            <button class="swatch active" data-color="black"></button>
+            <button class="swatch" data-color="white"></button>
+            <button class="swatch" data-color="red"></button>
+            <button class="swatch" data-color="navy"></button>
+            <button class="swatch" data-color="green"></button>
           </div>
+          <p id="selectedColorLabel">Black</p>
         </div>
 
-        <!-- Quantity -->
+        <!-- QTY -->
         <div class="selector-group">
-          <label class="selector-label">QUANTITY</label>
+          <label>Quantity</label>
           <div class="qty-control">
-            <button class="qty-btn" id="qtyMinus">−</button>
-            <span class="qty-value" id="qtyValue">1</span>
-            <button class="qty-btn" id="qtyPlus">+</button>
+            <button id="qtyMinus">-</button>
+            <span id="qtyValue">1</span>
+            <button id="qtyPlus">+</button>
           </div>
         </div>
 
-        <button class="btn-add-cart" id="addToCartBtn">ADD TO CART</button>
-        <button class="btn-buy-now" id="buyNowBtn">BUY NOW</button>
+        <!-- BUTTONS -->
+        <button id="addToCartBtn" class="btn-primary">ADD TO CART</button>
+        <button id="buyNowBtn" class="btn-secondary">BUY NOW</button>
 
-        <!-- Features -->
-        <ul class="feature-list">
-          <li><span class="feature-icon">⚡</span> 200+ silicone grip nodes for zero slippage</li>
-          <li><span class="feature-icon">🧵</span> Compression fit — stays in place all 90 mins</li>
-          <li><span class="feature-icon">💧</span> Moisture-wicking pro-grade fabric</li>
-          <li><span class="feature-icon">🥅</span> Compatible with all boot types</li>
-        </ul>
       </div>
     </div>
   </section>
-
-  <!-- EMAIL SIGNUP -->
-  <section class="email-section" id="newsletter">
-    <div class="email-inner">
-      <p class="email-eyebrow">JOIN THE SQUAD</p>
-      <h2 class="email-headline">Get 10% off your first order</h2>
-      <p class="email-sub">Early access to new colourways, exclusive drops, and pitch-side tips.</p>
-      <form class="email-form" id="emailForm">
-        <input type="email" class="email-input" placeholder="your@email.com" required />
-        <button type="submit" class="btn-primary">CLAIM 10%</button>
-      </form>
-      <p class="email-confirm" id="emailConfirm" style="display:none">✓ You're in! Check your inbox for your discount code.</p>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <span class="footer-logo">GRIPLOCK</span>
-      <div class="footer-links">
-        <a href="sizeguide.html">Size Guide</a>
-        <a href="faq.html">FAQ</a>
-        <a href="mailto:hello@griplock.com">Contact</a>
-      </div>
-      <p class="footer-copy">© 2026 GRIPLOCK. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <!-- CART DRAWER -->
-  <div class="cart-overlay" id="cartOverlay"></div>
-  <aside class="cart-drawer" id="cartDrawer">
-    <div class="cart-header">
-      <h3>YOUR BAG</h3>
-      <button class="cart-close" id="cartClose">✕</button>
-    </div>
-    <div class="cart-items" id="cartItems">
-      <p class="cart-empty">Your bag is empty.</p>
-    </div>
-    <div class="cart-footer" id="cartFooter" style="display:none">
-      <div class="cart-total">
-        <span>Total</span>
-        <span id="cartTotal">£0.00</span>
-      </div>
-      <button class="btn-primary full-width" id="checkoutBtn">CHECKOUT</button>
-    </div>
-  </aside>
 
   <script src="js/cart.js"></script>
   <script src="js/product.js"></script>
+
 </body>
 </html>
